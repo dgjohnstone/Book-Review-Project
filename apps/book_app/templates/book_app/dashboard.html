@@ -1,0 +1,19 @@
+<h3>Welcome, {{user.alias}}!</h3>
+
+<p align='right'><a href='/main/new'>Add Book and Review</a>| <a href='/logout'>Logout</a></p>
+
+<h4>Recent Book Reviews</h4>
+{%for r in recent%}
+<p><a href='/main/show_book/{{r.book.id}}'>{{r.book.title}}</a></p>
+Rating: {{r.rating}}
+<p><a href='/main/show_user/{{r.poster.id}}'>{{r.poster.alias}} </a>says: {{r.comment}}</p>
+Posted at: {{r.created_at}}<br>
+---------------------------------------------
+{%endfor%}
+
+
+<h4>Other book reviews</h4>
+{%for m in more%}
+<p><a href='/main/show_book/{{m.id}}'>{{m.book_title}}</a></p>
+-----------------------------------------------------
+{%endfor%}

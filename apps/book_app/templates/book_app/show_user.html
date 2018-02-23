@@ -1,0 +1,12 @@
+<p align='right'><a href='/main/dashboard'>Homepage</a>|<a href='/main/new'>Add Book and Review</a>| <a href='/logout'>Logout</a></p>
+
+<h2>User Alias: {{user.alias}}</h2>
+<h3>Name: {{user.name}}</h3>
+<h3>Email: {{user.email}}</h3>
+<h3>Total Reviews: {{user.posters.all.count}}</h3>
+
+<h3>Posted Reviews on the following books:</h3>
+
+{%for r in reviews%}
+<a href='/main/show_book/{{r.book.id}}'>{{r.book.title}}</a>
+{%endfor%}

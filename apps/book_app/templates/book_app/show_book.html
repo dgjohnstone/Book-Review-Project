@@ -1,0 +1,27 @@
+
+ <p align='right'><a href='/main/dashboard'>Homepage</a>|<a href='/logout'>Logout</a></p>
+<h2>{{books.title}}</h2>
+<h4>Author: {{books.writer.name}}</h4>
+
+{%for r in reviews%}
+<p><a href='/main/show_user/{{r.poster.id}}'>{{r.poster.alias}} </a>says: {{r.comment}}</p>
+Posted at: {{r.created_at}}<br>
+{%endfor%}
+---------------------------------
+
+<h3>Add a review</h3>
+
+<form action='/main/add/{{books.id}}' method='post'>
+    {% csrf_token %}
+  Review:<br>
+  <textarea name='comment'></textarea><br>
+  Rating: <select name='rating'>
+      <option value='4'>4</option>
+      <option value='3'>3</option>
+      <option value='2'>2</option>
+      <option value='1'>1</option>
+  </select> <br>
+  <input type='submit' value='Add Review'>
+
+
+
